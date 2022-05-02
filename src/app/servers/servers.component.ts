@@ -14,6 +14,7 @@ export class ServersComponent implements OnInit {
   };
   serverName = '';
   serverStatus = 'online';
+  sortBy = 'all';
   listOfServers = [
     {
       id: 1,
@@ -64,6 +65,7 @@ export class ServersComponent implements OnInit {
     this.listOfServers = [...this.listOfServers, newServer];
     this.serverName = '';
     this.showAlertMessage('created', newServer.id);
+    this.onSortByStatus('all');
   };
 
   onDeleteServer = (id: number) => {
@@ -84,8 +86,13 @@ export class ServersComponent implements OnInit {
   }
 
   onSortByStatus = (sortBy: string) => {
+    this.sortBy = sortBy;
     this.listOfServers = this.listOfServers.map(server => {
       return {...server, visible: sortBy === server.status || sortBy === 'all'};
     });
+  }
+
+  getVisibleServers = () => {
+    return this.listOfServers.filter(server => server.visible);
   }
 }
