@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class ServersComponent implements OnInit {
   allowNewServer = false;
   showAlert = {
-    visibel: false,
+    visible: false,
     type: 'success',
     message: 'Server was created!'
   };
@@ -39,11 +39,11 @@ export class ServersComponent implements OnInit {
   showAlertMessage = (message: string, id: number) => {
     const serverName = this.listOfServers.find(server => server.id === id).name;
 
-    this.showAlert.visibel = true;
+    this.showAlert.visible = true;
     this.showAlert.message = `Server ${serverName} was ${message}!`;
     
     setTimeout(() => {
-      this.showAlert.visibel = false;
+      this.showAlert.visible = false;
     }, 4000)
   }
 

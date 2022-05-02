@@ -23,7 +23,7 @@ import { Component, OnInit, Input } from '@angular/core';
   ]
 })
 export class AlertComponent implements OnInit {
-  @Input() alert: { type: string, message: string, visibel: boolean };
+  @Input() alert: { type: string, message: string, visible: boolean };
 
   constructor() { }
 
