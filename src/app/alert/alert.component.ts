@@ -11,14 +11,13 @@ import { Component, OnInit, Input } from '@angular/core';
     `p {
       padding: 20px;
       margin: 20px 0;
+    }
+    .success {
+      border: 1px solid green;
+    }
     
-      &.success {
-        border: 1px solid green;
-      }
-      
-      &.warning {
-        border: 1px solid red;
-      }
+    .warning {
+      border: 1px solid red;
     }`
   ]
 })
