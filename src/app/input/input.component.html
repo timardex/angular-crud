@@ -1,0 +1,21 @@
+<div class="mt-3">
+  <label>Sever name</label>
+  <input
+    type="text" class="form-control"
+    [(ngModel)]="serverName"
+    (ngModelChange)="change($event)"
+  />
+  <label class="mt-3">Sever status</label>
+  <div class="btn-group d-block">
+    <button
+      type="button"
+      class="btn btn-primary"
+      [disabled]="serverStatus === 'offline'"
+      (click)="onSetServerStatus('offline')">Offline</button>
+    <button
+      type="button"
+      class="btn btn-primary"
+      [disabled]="serverStatus === 'online'"
+      (click)="onSetServerStatus('online')">Online</button>
+  </div>
+</div>

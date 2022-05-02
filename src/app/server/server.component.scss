@@ -1,0 +1,15 @@
+ul {
+  margin: 15px 0;
+}
+
+span {
+  font-weight: bold;
+
+  &.offline {
+    color: red;
+  }
+
+  &.online {
+    color: green;
+  }
+}

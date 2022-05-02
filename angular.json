@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "my-first-app": {
+    "angular-crud": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/my-first-app",
+            "outputPath": "dist/angular-crud",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -28,6 +28,7 @@
               "src/assets"
             ],
             "styles": [
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/styles.scss"
             ],
             "scripts": []
@@ -69,10 +70,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "my-first-app:build:production"
+              "browserTarget": "angular-crud:build:production"
             },
             "development": {
-              "browserTarget": "my-first-app:build:development"
+              "browserTarget": "angular-crud:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -80,7 +81,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "my-first-app:build"
+            "browserTarget": "angular-crud:build"
           }
         },
         "test": {
@@ -104,5 +105,5 @@
       }
     }
   },
-  "defaultProject": "my-first-app"
+  "defaultProject": "angular-crud"
 }
