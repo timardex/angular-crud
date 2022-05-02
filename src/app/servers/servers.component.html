@@ -20,17 +20,14 @@
     <label>Sort by</label>
     <div class="btn-group d-block">
       <button
+        *ngFor="let status of ['all', 'offline', 'online']"
         type="button"
         class="btn btn-primary"
-        (click)="onSortByStatus('all')">All</button>
-      <button
-        type="button"
-        class="btn btn-primary"
-        (click)="onSortByStatus('offline')">Offline</button>
-      <button
-        type="button"
-        class="btn btn-primary"
-        (click)="onSortByStatus('online')">Online</button>
+        [disabled]="sortBy === status"
+        (click)="onSortByStatus(status)"
+      >
+        {{ status.charAt(0).toUpperCase() + status.slice(1) }}
+      </button>
     </div>
   </div>
 

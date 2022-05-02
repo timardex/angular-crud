@@ -3,8 +3,8 @@
 
   <div *ngIf="!showFields">
     <ul class="list-group">
-      <li class="list-group-item">Name: {{ server.name }}</li>
-      <li class="list-group-item">Status: <span [class]="server.status">{{ server.status }}</span></li>
+      <li class="list-group-item list-group-item-dark">Name: {{ server.name }}</li>
+      <li class="list-group-item list-group-item-dark">Status: <span [class]="server.status">{{ server.status }}</span></li>
     </ul>
     
     <div class="btn-group">
@@ -20,6 +20,9 @@
       [serverStatus]="serverStatus"
       [onSetServerStatus]="onSetServerStatus"></app-input>
       
-    <button (click)="onUpdate()" type="button" [disabled]="serverName === ''" class="btn btn-success mt-3">Save</button>
+    <div class="btn-group mt-3">
+      <button (click)="onUpdate()" type="button" [disabled]="serverName === ''" class="btn btn-success">Save</button>
+      <button (click)="onToggleFields()" type="button" class="btn btn-info">Cancel</button>
+    </div>
   </div>
 </div>

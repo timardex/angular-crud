@@ -35,7 +35,7 @@ export class ServerComponent implements OnInit {
   }
 
   onToggleFields() {
-    this.showFields = true;
+    this.showFields = !this.showFields;
     this.serverName = this.server.name;
     this.serverStatus = this.server.status;
   }
