@@ -19,11 +19,13 @@ export class ServersComponent implements OnInit {
       id: 1,
       name: 'Server 1',
       status: 'offline',
+      visible: true,
     },
     {
       id: 2,
       name: 'Server 2',
       status: 'online',
+      visible: true,
     }
   ];
 
@@ -56,6 +58,7 @@ export class ServersComponent implements OnInit {
       id: this.listOfServers.length + 1,
       name: this.serverName,
       status: this.serverStatus,
+      visible: true,
     };
 
     this.listOfServers = [...this.listOfServers, newServer];
@@ -78,5 +81,11 @@ export class ServersComponent implements OnInit {
         : server
     });
     this.showAlertMessage('updated', element.id);
+  }
+
+  onSortByStatus = (sortBy: string) => {
+    this.listOfServers = this.listOfServers.map(server => {
+      return {...server, visible: sortBy === server.status || sortBy === 'all'};
+    });
   }
 }
