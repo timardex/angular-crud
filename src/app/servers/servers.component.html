@@ -28,19 +28,26 @@
           (click)="onSortByStatus(status)"
         >
           {{ status.charAt(0).toUpperCase() + status.slice(1) }}
+          ({{ status === 'all' ? listOfServers.length : getServersByStatus(status).length}})
         </button>
       </div>
     </div>
   </ng-template>
 
-  <app-server
-    *ngFor="let server of listOfServers"
-    [server]="server"
-    [onDeleteServer]="onDeleteServer"
-    [onUpdateServer]="onUpdateServer"
-  ></app-server>
+  <div class="row">
+    <div *ngFor="let server of listOfServers; index as i" class="col-xs-12 col-sm-6 col-md-4">
+      <app-server
+        [server]="server"
+        [onDeleteServer]="onDeleteServer"
+        [onUpdateServer]="onUpdateServer"
+        [index]="i + 1"
+      ></app-server>
+    </div>
+  </div>
 
-  <p *ngIf="getVisibleServers().length === 0 && listOfServers.length > 0" class="mt-3 mb-0">No servers found with status {{ sortBy }}</p>
+  <p *ngIf="getVisibleServers().length === 0 && listOfServers.length > 0" class="mt-3 mb-0">
+    No servers found with status <span [class]="sortBy">{{ sortBy }}</span>
+  </p>
 </section>
 
 <app-alert *ngIf="showAlert.visible" [alert]="showAlert"></app-alert>

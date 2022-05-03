@@ -47,7 +47,7 @@ export class ServersComponent implements OnInit {
     
     setTimeout(() => {
       this.showAlert.visible = false;
-    }, 4000)
+    }, 3000);
   }
 
   onSetServerStatus = (status: string) => {
@@ -83,6 +83,7 @@ export class ServersComponent implements OnInit {
         : server
     });
     this.showAlertMessage('updated', element.id);
+    this.onSortByStatus('all');
   }
 
   onSortByStatus = (sortBy: string) => {
@@ -94,5 +95,9 @@ export class ServersComponent implements OnInit {
 
   getVisibleServers = () => {
     return this.listOfServers.filter(server => server.visible);
+  }
+
+  getServersByStatus = (status: string) => {
+    return this.listOfServers.filter(server => server.status === status);
   }
 }

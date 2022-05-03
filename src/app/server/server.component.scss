@@ -1,5 +1,10 @@
+div {
+  position: relative;
+}
+
 ul {
   margin: 15px 0;
+  box-shadow: 0 5px 7px -6px rgb(0 0 0 / 40%);
 }
 
 span {
@@ -12,4 +17,16 @@ span {
   &.online {
     color: green;
   }
+}
+
+.index {
+  position: absolute;
+  top: 0; right: 0;
+  width: 25px; height: 25px;
+  z-index: 1;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom-left-radius: 15px;
 }

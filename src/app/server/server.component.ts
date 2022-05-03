@@ -11,6 +11,7 @@ export class ServerComponent implements OnInit {
   serverStatus = '';
 
   @Input() server: {id: number, name: string, status: string, visible: boolean};
+  @Input() index: number;
   @Input() onDeleteServer: (args: number) => void;
   @Input() onUpdateServer: (server: {id: number, name: string, status: string}) => void;
 

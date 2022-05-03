@@ -2,5 +2,18 @@ section {
   background: #fff;
   padding: 15px;
   margin: 15px 0;
-  box-shadow: 0 5px 7px -6px rgb(0 0 0 / 20%);
+  box-shadow: 0 5px 7px -6px rgb(0 0 0 / 40%);
+  border-radius: 5px;
+
+  span {
+    font-weight: bold;
+  
+    &.offline {
+      color: red;
+    }
+  
+    &.online {
+      color: green;
+    }
+  }
 }
