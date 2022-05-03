@@ -1,7 +1,7 @@
 <div *ngIf="server.visible">
   <hr>
 
-  <div *ngIf="!showFields">
+  <div *ngIf="!showFields; else showEdit">
     <ul class="list-group">
       <li class="list-group-item list-group-item-dark">Name: {{ server.name }}</li>
       <li class="list-group-item list-group-item-dark">Status: <span [class]="server.status">{{ server.status }}</span></li>
@@ -13,16 +13,18 @@
     </div>
   </div>
 
-  <div *ngIf="showFields">
-    <app-input
-      (onChange)="serverName = $event.value"
-      [serverName]="serverName"
-      [serverStatus]="serverStatus"
-      [onSetServerStatus]="onSetServerStatus"></app-input>
-      
-    <div class="btn-group mt-3">
-      <button (click)="onUpdate()" type="button" [disabled]="serverName === ''" class="btn btn-success">Save</button>
-      <button (click)="onToggleFields()" type="button" class="btn btn-info">Cancel</button>
+  <ng-template #showEdit>
+    <div>
+      <app-input
+        (onChange)="serverName = $event.value"
+        [serverName]="serverName"
+        [serverStatus]="serverStatus"
+        [onSetServerStatus]="onSetServerStatus"></app-input>
+        
+      <div class="btn-group mt-3">
+        <button (click)="onUpdate()" type="button" [disabled]="serverName === ''" class="btn btn-success">Save</button>
+        <button (click)="onToggleFields()" type="button" class="btn btn-info">Cancel</button>
+      </div>
     </div>
-  </div>
+  </ng-template>
 </div>

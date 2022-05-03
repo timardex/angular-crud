@@ -13,23 +13,25 @@
 </section>
 
 <section>
-  <p *ngIf="listOfServers.length === 0" class="mb-0">No server found</p>
+  <p *ngIf="listOfServers.length === 0; else noServer" class="mb-0">No server found</p>
 
-  <div *ngIf="listOfServers.length > 0">
-    <h4>List of servers {{ listOfServers.length }}</h4>
-    <label>Sort by</label>
-    <div class="btn-group d-block">
-      <button
-        *ngFor="let status of ['all', 'offline', 'online']"
-        type="button"
-        class="btn btn-primary"
-        [disabled]="sortBy === status"
-        (click)="onSortByStatus(status)"
-      >
-        {{ status.charAt(0).toUpperCase() + status.slice(1) }}
-      </button>
+  <ng-template #noServer>
+    <div>
+      <h4>List of servers {{ listOfServers.length }}</h4>
+      <label>Sort by</label>
+      <div class="btn-group d-block">
+        <button
+          *ngFor="let status of ['all', 'offline', 'online']"
+          type="button"
+          class="btn btn-primary"
+          [disabled]="sortBy === status"
+          (click)="onSortByStatus(status)"
+        >
+          {{ status.charAt(0).toUpperCase() + status.slice(1) }}
+        </button>
+      </div>
     </div>
-  </div>
+  </ng-template>
 
   <app-server
     *ngFor="let server of listOfServers"
