@@ -35,7 +35,7 @@
   </ng-template>
 
   <div class="row">
-    <div *ngFor="let server of listOfServers; index as i" class="col-xs-12 col-sm-6 col-md-4">
+    <div *ngFor="let server of getVisibleServers(); index as i" class="col-xs-12 col-sm-6 col-md-4">
       <app-server
         [server]="server"
         [onDeleteServer]="onDeleteServer"

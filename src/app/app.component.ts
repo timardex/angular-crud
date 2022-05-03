@@ -7,5 +7,6 @@ import { Component } from '@angular/core';
 })
 
 export class AppComponent {
-  
+  //ng build --base-href=/angular-crud/
+  //ngh --dir dist/angular-crud/
 }
